@@ -6,6 +6,7 @@
   <title>Alura Typer</title>
   <link rel="stylesheet" href="css/libs/materialize.min.css">
   <link rel="stylesheet" href="css/libs/google-fonts.css">
+  <link rel="stylesheet" href="css/libs/selectize.default.css">
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -13,9 +14,13 @@
   <div class="container">
     <h1 class="center">Alura Typer</h1>
 
-    <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-      dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
+    <p class="frase center"></p>
+    <div class="center">
+      <img src="img/spinner.gif" alt="Spinner" id="spinner">
+      <p id="erro">
+        Ocorreu um erro, por favor tente novamente!
+      </p>
+    </div>
     <ul class="informacoes center">
       <li>
         <i class="small material-icons icones">description</i>
@@ -23,7 +28,7 @@
       </li>
       <li>
         <i class="small material-icons icones">query_builder</i>
-        <span id="tempo-digitacao">10</span> segundos
+        <span id="tempo-digitacao">0</span> segundos
       </li>
     </ul>
 
@@ -33,6 +38,26 @@
       <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
         <i class="material-icons">restore</i>
       </a>
+      <a id="botao-placar" class="btn-floating btn-large waves-effect waves-light green">
+        <i class="material-icons">assignment</i>
+      </a>
+      <a id="botao-frase" class="btn-floating btn-large waves-effect waves-light blue">
+        <i class="material-icons">shuffle</i>
+      </a>
+      <a id="botao-frase-id" class="btn-floating btn-large waves-effect waves-light cyan">
+        <i class="material-icons">repeat_one</i>
+      </a>
+      <input type="number" id="frase-id" min="0">
+      <div class="select-usuarios">
+        <select id="usuarios">
+          <option value="Douglas">Douglas</option>
+          <option value="Flavio">Flavio</option>
+          <option value="Nico">Nico</option>
+        </select>
+      </div>
+      <a id="botao-sync" class="btn-floating btn-large waves-effect waves-light yellow">
+          <i class="material-icons">swap_vert</i>
+      </a
     </div>
 
     <ul class="center">
@@ -54,11 +79,12 @@
         </tbody>
       </table>
     </section>
-
   </div>
   <script src="js/jquery.js"></script>
   <script src="js/main.js"></script>
   <script src="js/placar.js"></script>
+  <script src="js/frase.js"></script>
+  <script src="js/selectize.js"></script>
 
 </body>
 
