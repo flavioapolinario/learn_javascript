@@ -79,16 +79,23 @@ function sincronizaPlacar() {
   };
 
   $.post("http://localhost:3000/placar", dados, function() {
-    console.log("Placar sincronizado com sucesso");
+    $('.tooltip').tooltipster("open").tooltipster("content","Sincronizado com sucesso!");
+  }).fail(function() {
+    $('.tooltip').tooltipster("open").tooltipster("content","Falha ao sincronizar!");
+  }).always(function() {
+    setTimeout(function() {
+      $('.tooltip').tooltipster("close");
+    }, 1200);
   });
+
 }
 
-function atualizaPlacar(){
-    $.get("http://localhost:3000/placar",function(data){
-        $(data).each(function(){
-            var linha = novaLinha(this.usuario, this.pontos);
-            linha.find(".botao-remover").click(removeLinha);
-            $("tbody").append(linha);
-        });
+function atualizaPlacar() {
+  $.get("http://localhost:3000/placar", function(data) {
+    $(data).each(function() {
+      var linha = novaLinha(this.usuario, this.pontos);
+      linha.find(".botao-remover").click(removeLinha);
+      $("tbody").append(linha);
     });
+  });
 }

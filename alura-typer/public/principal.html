@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/libs/materialize.min.css">
   <link rel="stylesheet" href="css/libs/google-fonts.css">
   <link rel="stylesheet" href="css/libs/selectize.default.css">
+  <link rel="stylesheet" href="css/libs/tooltipster.bundle.min.css">
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 
@@ -35,7 +36,7 @@
     <textarea class="campo-digitacao" rows="8" cols="40"></textarea>
 
     <div class="botoes">
-      <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red">
+      <a id="botao-reiniciar" class="btn-floating btn-large waves-effect waves-light red" >
         <i class="material-icons">restore</i>
       </a>
       <a id="botao-placar" class="btn-floating btn-large waves-effect waves-light green">
@@ -50,12 +51,12 @@
       <input type="number" id="frase-id" min="0">
       <div class="select-usuarios">
         <select id="usuarios">
-          <option value="Douglas">Douglas</option>
-          <option value="Flavio">Flavio</option>
-          <option value="Nico">Nico</option>
+          <!-- <option value="Douglas">Douglas</option>
+          <option value="Flavio" selected>Flavio</option>
+          <option value="Nico" >Nico</option> -->
         </select>
       </div>
-      <a id="botao-sync" class="btn-floating btn-large waves-effect waves-light yellow">
+      <a id="botao-sync" class="btn-floating btn-large waves-effect waves-light yellow tooltip" title="Sincronizado com sucesso!">
           <i class="material-icons">swap_vert</i>
       </a
     </div>
@@ -81,10 +82,13 @@
     </section>
   </div>
   <script src="js/jquery.js"></script>
+  <script src="js/selectize.js"></script>
+  <script src="js/tooltipster.bundle.min.js"></script>
+
   <script src="js/main.js"></script>
   <script src="js/placar.js"></script>
   <script src="js/frase.js"></script>
-  <script src="js/selectize.js"></script>
+  <script src="js/usuario.js"></script>
 
 </body>
 

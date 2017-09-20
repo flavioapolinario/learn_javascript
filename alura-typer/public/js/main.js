@@ -12,6 +12,10 @@ $(function() {
   $("#usuarios").selectize({create: true, sortField: 'text'});
   fraseAleatoria();
   $("#tamanho-frase").text(0);
+  $('.tooltip').tooltipster({
+    trigger: "custom"
+  });
+  buscaUsuario();
 });
 
 function atualizaTempoInicial(tempo) {
@@ -29,15 +33,30 @@ function atualizaTamanhoFrase() {
 function inicializaContadores() {
   campo.on("input", function() {
     var conteudo = campo.val();
-    var qtdPalavras = conteudo.split(/\S+/).length - 1;
+    //var qtdPalavras = conteudo.split(/\S+/).length - 1;
+    var qtdPalavras = contaPalavrasCorretas(conteudo);
     var qtdCaracteres = conteudo.length;
     $("#contador-palavras").text(qtdPalavras);
     $("#contador-caracteres").text(qtdCaracteres);
   });
 }
 
-function inicializaCronometro() {
+function contaPalavrasCorretas(conteudo){
+  var qtdPalavrasCertas = 0;
+  var palavras = conteudo.split(/\s+/);
+  var frase = $(".frase").text().split(/\s+/);
 
+  $.each(palavras, function(i, palavra){
+    $.each(frase, function(j, frasePalavra){
+      if(palavra == frasePalavra)
+        qtdPalavrasCertas++;
+    });
+  });
+
+  return qtdPalavrasCertas;
+}
+
+function inicializaCronometro() {
   campo.one("focus", function() {
     var tempoRestante = $("#tempo-digitacao").text();
     $("#botao-reiniciar").attr("disabled", true);
